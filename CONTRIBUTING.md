@@ -39,7 +39,7 @@ cd BloggerWeb
 **4.** Create a new branch.
 
 ```terminal
-git checkout testing
+git checkout -b testing
 ```
 
 **5.** Make changes in source code.
