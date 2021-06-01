@@ -13,6 +13,15 @@ type IndexProps = {
 };
 
 export const Index = ({ posts }: IndexProps): JSX.Element => {
+  const login = true; 
+  // for now change here
+  if(!login)
+  {
+    return(
+      <><Login /></>
+    )
+  }
+  else{
   return (
     <Layout>
       <Header />
@@ -55,6 +64,7 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
       ))}
     </Layout>
   );
+  }
 };
 
 export const getStaticProps: GetStaticProps = async () => {
