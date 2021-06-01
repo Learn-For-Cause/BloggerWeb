@@ -36,7 +36,7 @@ export const useSignUpStyles = makeStyles(() =>
       padding: "28px 0 28px 0",
     },
     gotoLogin: {
-      fontSize: "0.7rem",
+      fontSize: "0.9rem",
       cursor: "pointer",
       "&:hover": {
         color: "#b6c9f0",
@@ -53,10 +53,20 @@ export const useSignUpStyles = makeStyles(() =>
       color: "black",
       padding: "21px",
     },
-    btn: {
-      backgroundColor: "#283593",
-      color: "white",
-      width: "94%",
+    button1: {
+      backgroundColor: "grey",
+      color: "black",
+      width: "19%",
+    },
+    button2: {
+      width: "79%",
+    },
+    buttonGroup: {
+      width: "100%",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      alignItems: "center",
     },
     textfield: {
       width: "94%",
