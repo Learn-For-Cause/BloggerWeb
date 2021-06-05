@@ -1,3 +1,4 @@
+// Login
 import { format, parseISO } from 'date-fns';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
@@ -5,8 +6,6 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
-import Header from '../components/Header';
-import Publications from '../components/Publications';
 import {useSession } from "next-auth/client";
 import Login from './login'
 type IndexProps = {
@@ -25,8 +24,6 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
   {
   return (
     <Layout>
-      <Header />
-      <Publications />
       <h1>Home Page</h1>
       <p>Next.js starter for your next blog or personal site. Built with:</p>
       <ul className="list-disc pl-4 my-6">
