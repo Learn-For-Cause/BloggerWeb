@@ -1,0 +1,50 @@
+.conatiner { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: 'Overpass', sans-serif; letter-spacing: 0px; font-size: 17px; color: #8d8f90; font-weight: 400; line-height: 32px; background-color: #edefef; }
+.container h2{ color: #25292a; margin: 0px 0px 10px 0px; font-family: 'Overpass', sans-serif; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+.container h1{ color: #25292a; margin: 0px 0px 10px 0px; font-family: 'Overpass', sans-serif; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+.container h1 { font-size: 34px; }
+.container h2 { font-size: 28px; line-height: 38px; }
+.container h3 { font-size: 22px; line-height: 32px; }
+.container h4 { font-size: 20px; }
+.container h5 { font-size: 17px; }
+.container h6 { font-size: 12px; }
+.container p { margin: 0 0 20px; line-height: 1.7; }
+.container p:last-child { margin: 0px; }
+
+.container a { text-decoration: none; color: #8d8f90; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+.container a:focus{ text-decoration: none; color: #f85759; }
+.container a:hover { text-decoration: none; color: #f85759; }
+
+
+
+.pageheader { 
+    border-radius: 0 0 30% 30%;
+    background: url(https://easetemplate.com/free-website-templates/hike/images/pageheader.jpg)no-repeat; position: relative; background-size: cover; }
+.pagecaption { padding-top: 170px; padding-bottom: 174px; }
+.pagetitle { font-size: 46px; line-height: 1; color: #fff; font-weight: 600;;
+    
+}
+
+.cardsection { position: relative; bottom: 60px; }
+.cardblock { padding: 80px; }
+.sectiontitle { margin-bottom: 60px; text-align: center; }
+
+.pagetitle span{
+    color:rgb(223, 212, 66);
+}
+.pagecaption{
+    position: relative;
+    left:25px;
+    top:-140px;
+}
+@media (max-width:600px) {
+    .pageheader{
+        border-radius: 0 0 50% 50%;
+    }
+    .sectiontitle{
+        font-size: 15px;
+    }
+    .sectiontitle h2{
+        line-height: -10px;
+        font-size: 25px;
+    }
+}

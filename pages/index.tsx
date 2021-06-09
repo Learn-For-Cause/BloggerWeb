@@ -7,7 +7,9 @@ import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
 import {useSession } from "next-auth/client";
-import Login from './login'
+import Login from './login';
+import Header from '../components/Header';
+import Publications from '../components/Publications';
 type IndexProps = {
   posts: PostType[];
 };
@@ -24,6 +26,8 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
   {
   return (
     <Layout>
+      <Header />
+      <Publications />
       <h1>Home Page</h1>
       <p>Next.js starter for your next blog or personal site. Built with:</p>
       <ul className="list-disc pl-4 my-6">
