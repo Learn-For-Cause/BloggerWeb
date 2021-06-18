@@ -22,8 +22,7 @@ const SignUp = () => {
   };
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    const url = "";
-    axios.post(url, formData).then((res) => {
+    axios.post(`${process.env.API_URL}/addUser`, formData).then((res) => {
       console.log(res);
     });
   };
