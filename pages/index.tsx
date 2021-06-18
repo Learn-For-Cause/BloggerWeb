@@ -1,4 +1,5 @@
 // Login
+
 import { format, parseISO } from "date-fns";
 import { GetStaticProps } from "next";
 import Link from "next/link";
@@ -10,12 +11,22 @@ import { useSession } from "next-auth/client";
 import Login from "./login";
 import Publications from "../components/Publications";
 import Header from "../components/Header";
+
+
+
+
+
+
+
+
+
 type IndexProps = {
   posts: PostType[];
 };
 
 export const Index = ({ posts }: IndexProps): JSX.Element => {
   const [session] = useSession();
+
   if (!session) {
     //after signup it will change
     return (
@@ -36,6 +47,13 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
           <li className="mt-2">MDX</li>
           <li className="mt-2">Tailwind CSS</li>
         </ul>
+
+
+
+
+
+
+
 
         <a
           href="https://github.com/ChangoMan/nextjs-typescript-mdx-blog"
