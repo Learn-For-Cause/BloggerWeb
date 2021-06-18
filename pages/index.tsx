@@ -8,10 +8,14 @@ import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
 
 import {useSession } from "next-auth/client";
-import Login from './login'
 
+import Login from './login';
 import Header from '../components/Header';
 import Publications from '../components/Publications';
+
+
+
+
 
 
 type IndexProps = {
