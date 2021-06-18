@@ -8,6 +8,8 @@ import { getAllPosts } from "../lib/api";
 import { PostType } from "../types/post";
 import { useSession } from "next-auth/client";
 import Login from "./login";
+import Publications from "../components/Publications";
+import Header from "../components/Header";
 type IndexProps = {
   posts: PostType[];
 };
