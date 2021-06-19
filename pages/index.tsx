@@ -1,3 +1,4 @@
+// Login
 import { format, parseISO } from 'date-fns';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
@@ -5,14 +6,28 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
+
+import {useSession } from "next-auth/client";
+import Login from './login'
+
 import Header from '../components/Header';
 import Publications from '../components/Publications';
+
 
 type IndexProps = {
   posts: PostType[];
 };
 
 export const Index = ({ posts }: IndexProps): JSX.Element => {
+  const [session] = useSession();
+  if(!session)  //after signup it will change
+  {
+      return(
+        <><Login/></>
+      )
+  }
+  else
+  {
   return (
     <Layout>
       <Header />
@@ -55,6 +70,7 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
       ))}
     </Layout>
   );
+  }
 };
 
 export const getStaticProps: GetStaticProps = async () => {
