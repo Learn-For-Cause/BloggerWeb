@@ -8,7 +8,8 @@ import { getAllPosts } from '../lib/api';
 import { PostType } from '../types/post';
 
 import {useSession } from "next-auth/client";
-import Login from './login'
+import Login from './login';
+import Landing from './landing';
 
 import Header from '../components/Header';
 import Publications from '../components/Publications';
@@ -23,7 +24,7 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
   if(!session)  //after signup it will change
   {
       return(
-        <><Login/></>
+        <><Landing/></>
       )
   }
   else

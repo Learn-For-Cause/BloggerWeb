@@ -48,3 +48,88 @@
         font-size: 25px;
     }
 }
+/* landing page css */
+.app{
+    background-color: #dadbd3;
+    display: grid;
+    place-items: center;
+  }
+  .app__container{
+      margin: 20px 0 20px 0;
+    width: 90vw;
+    background-color: #ededed;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -1px 4px 20px -6px black;
+  }
+  .app__heading{
+      margin: 10px;
+      text-align: center;
+      color:rgb(182, 128, 28);
+  }
+  .app__content{
+      display: flex;
+      flex-direction: row;
+  }
+  .left{
+      text-align: center;
+      height: 70vh;
+      flex:.4;
+      color: rgb(145, 106, 106);
+      padding-left: 30px;
+    }
+  .left img{
+      padding: 50px 30px 30px 30px;
+  }
+  .left p{
+    font-size: small;
+    padding: 20px 30px 30px 30px;
+  }
+  .left h3{
+      font-weight: 700;
+  }
+  .right{
+      text-align: center;
+      flex:.6;
+      color: rgb(145, 106, 106);
+  }
+  .right h2{
+      padding: 80px 120px 50px 120px;
+  }
+  .right p{
+      padding: 0 80px 80px 80px;
+  }
+  .app__links{
+      text-align: center;
+      padding: 0 0 30px 0;
+      position: relative;
+      top:-24px;
+  }
+  .app__links button{
+      width:80px;
+      height: 30px;
+      margin:30px;
+      background-color: rgb(238, 235, 42);
+      border-radius: 4px;
+      color:black;
+      position: relative;
+      top:-20px;
+  }
+  .app__links button:hover{
+      background-color: yellow;
+      
+  }
+  .app__footer{
+      text-align: center;
+      margin:30px;
+  }
+  @media(max-width:900px){
+      .app__content{
+          flex-direction: column;
+      }
+      .left{
+        padding-left: initial;
+      }
+  }
+  
+  
