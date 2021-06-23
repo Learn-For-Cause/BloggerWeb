@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     console.log(formData);
-    axios.post(`${process.env.API_URL}/authUser`, formData).then((res) => {
+    axios.post('http://localhost:7070/authUser', formData).then((res) => {
       console.log(res);
     });
   };

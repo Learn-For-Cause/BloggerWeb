@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/client";
 import axios from "axios";
-import Login from "./login";
-import { redirect } from "next/dist/next-server/server/api-utils";
 
 const SignUp = () => {
   const router = useRouter();
@@ -24,9 +22,8 @@ const SignUp = () => {
   };
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    axios.post('http://localhost:7070/addUser', formData).then((res) => {
+    axios.post(`${process.env.API_URL}/addUser`, formData).then((res) => {
       console.log(res);
-      alert('registered')
     });
   };
   return (
