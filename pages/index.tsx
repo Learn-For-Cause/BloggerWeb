@@ -27,7 +27,7 @@ type IndexProps = {
 
 export const Index = ({ posts }: IndexProps): JSX.Element => {
   const [session] = useSession();
-
+  const router = useRouter()
     return (
       <Layout>
         {!session && (
