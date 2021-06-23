@@ -27,6 +27,7 @@ const SignUp = () => {
     axios.post('http://localhost:7070/addUser', formData).then((res) => {
       console.log(res);
       alert('registered')
+      router.push('/')
     });
   };
   return (

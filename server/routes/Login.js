@@ -20,7 +20,9 @@ const LoginUser = async(req, res) => {
       if (err) console.log(err);
       else {
         if (docs) {
-          if (bcrypt.compare(userPassword, docs["userPassword"])) {
+          console.log(userPassword)
+          console.log(docs.userPassword)
+          if (bcrypt.compare('userPassword', docs.userPassword)) {
             res.send('Succesfully loged In');
           } else res.send("WRONG-PASSWORD");
         } else {

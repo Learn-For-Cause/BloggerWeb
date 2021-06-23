@@ -23,6 +23,13 @@ const Login = () => {
     console.log(formData);
     axios.post('http://localhost:7070/authUser', formData).then((res) => {
       console.log(res);
+      if(res.data === "Succesfully loged In")
+      {
+        router.push('/')
+      }
+      else{
+
+      }
     });
   };
   return (
