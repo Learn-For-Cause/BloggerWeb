@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import UserModel from "../models/UserSchema.js";
 import bcrypt from "bcrypt"
+import jwt from 'jsonwebtoken'
 const app = express();
 app.use(json());
 //Trial
@@ -20,10 +21,20 @@ const LoginUser = async(req, res) => {
       if (err) console.log(err);
       else {
         if (docs) {
-          console.log(userPassword)
-          console.log(docs.userPassword)
+          // console.log(userPassword)
+          // console.log(docs.userPassword)
           if (await bcrypt.compare(req.body.userPassword,docs.userPassword)===true) {
-            res.send('Succesfully loged In');
+            
+            const token = jwt.sign(
+              { email: docs.userEmail},
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: "24h" }
+            );
+            res.send({
+              code: "success",
+              userResponse: docs,
+              signedToken: token,
+            });
           } else res.send("WRONG-PASSWORD");
         } else {
           res.send("UNREGISTERED");
