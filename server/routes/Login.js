@@ -16,13 +16,13 @@ const LoginUser = async(req, res) => {
     {
       userEmail: userEmail,
     },
-    (err, docs) => {
+    async(err, docs) => {
       if (err) console.log(err);
       else {
         if (docs) {
           console.log(userPassword)
           console.log(docs.userPassword)
-          if (bcrypt.compare('userPassword', docs.userPassword)) {
+          if (await bcrypt.compare(req.body.userPassword,docs.userPassword)===true) {
             res.send('Succesfully loged In');
           } else res.send("WRONG-PASSWORD");
         } else {
