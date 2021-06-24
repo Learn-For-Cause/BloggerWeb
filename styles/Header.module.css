@@ -185,7 +185,7 @@
     }
     
     .button_os:hover{
-      position: absolute;
+      position: absolute; 
       top: 30px;
       background-color: #fec7d7;
     }
@@ -197,7 +197,7 @@
       color:#0e172c;
       transition: 1.5s;
     }
-    
+    /* vv */
     .button_os a:hover{
       letter-spacing: 5px;
     }
