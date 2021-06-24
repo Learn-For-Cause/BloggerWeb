@@ -73,17 +73,18 @@
   }
   .left{
       text-align: center;
-      height: 70vh;
       flex:.4;
       color: rgb(145, 106, 106);
-      padding-left: 30px;
+      padding-left: 50px;
     }
   .left img{
-      padding: 50px 30px 30px 30px;
+      padding: 0 17% 3% 17%;
+      margin-right: auto;
+      margin-left: auto;
   }
   .left p{
     font-size: small;
-    padding: 20px 30px 30px 30px;
+    padding: 20px 150px 0 150px;
   }
   .left h3{
       font-weight: 700;
@@ -101,29 +102,40 @@
   }
   .app__links{
       text-align: center;
-      padding: 0 0 30px 0;
       position: relative;
       top:-24px;
   }
   .app__links button{
       width:80px;
-      height: 30px;
-      margin:30px;
-      background-color: rgb(238, 235, 42);
-      border-radius: 4px;
-      color:black;
+      height: 35px;
+      margin:35px;
+      background-color: rgb(42, 45, 238);
+      border-radius: 10px;
+      color:white;
       position: relative;
       top:-20px;
   }
   .app__links button:hover{
       background-color: yellow;
-      
+      color:blue;
   }
+  .app__faqs{
+      width:70%;
+      margin: 0 auto;
+      margin-top: 50px;
+      color: grey;
+  }
+  .app__faqs h2{
+      color: hotpink;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+  
   .app__footer{
       text-align: center;
       margin:30px;
   }
-  @media(max-width:900px){
+  @media(max-width:1800px){
       .app__content{
           flex-direction: column;
       }
