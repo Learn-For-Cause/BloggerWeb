@@ -48,9 +48,15 @@ function landing() {
                         <p>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio esse eius ipsam voluptatibus quod assumenda aliquid minima quaerat? Cupiditate repudiandae quibusdam quidem, temporibus quisquam sequi dolor repellat iste necessitatibus explicabo! Obcaecati nisi qui vitae eveniet.
                         </p>
-                        <div className={styles.app__links}>
-                            <Link href="/login"><button>LogIn</button></Link>
-                            <Link href="/signup"><button>SignUp</button></Link>
+                        <div className={styles.links}>
+                        <div className={styles.app__link}>
+                            
+                            <button id={styles.foot}><button className={styles.button_os}><a href="">LOG IN</a></button></button>
+                        </div>
+                        <div className={styles.app__link}>
+                            
+                            <button id={styles.foot}><button className={styles.button_os}><a href="">SIGN IN</a></button></button>
+                        </div>
                         </div>
                     </div>
                 </div>

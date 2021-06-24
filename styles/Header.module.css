@@ -100,25 +100,7 @@
   .right p{
       padding: 0 80px 80px 80px;
   }
-  .app__links{
-      text-align: center;
-      position: relative;
-      top:-24px;
-  }
-  .app__links button{
-      width:80px;
-      height: 35px;
-      margin:35px;
-      background-color: rgb(42, 45, 238);
-      border-radius: 10px;
-      color:white;
-      position: relative;
-      top:-20px;
-  }
-  .app__links button:hover{
-      background-color: yellow;
-      color:blue;
-  }
+  
   .app__faqs{
       width:70%;
       margin: 0 auto;
@@ -143,5 +125,84 @@
         padding-left: initial;
       }
   }
+  .links{
+      display: flex;
+      flex-direction: row;
+      padding: 0 20% 5% 20%;
+  }
+  .app__link{
+    
+    display: flex;
+    flex:.5;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+  .app__link button{
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgb(207, 207, 207);
+  }
   
+  .app__link button:hover{
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 8px #f9f8fc;
+    } 
   
+   #foot{
+    position: relative;
+    top: 15px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px #d9d4e7;
+    width: 120px;
+    height: 50px;
+    background-color: #d9d4e7;
+    animation-duration: 5s;
+  }
+  
+  .button_os{
+     position: absolute;
+      width: 120px;
+      height: 50px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: #f9f8fc;
+      border: 2.5px solid #0e172c;
+      transition: background-color 2.2s;
+      transition-duration: 3s;
+      transition: 1.5s;
+    }
+    
+    .button_os:hover{
+      position: absolute;
+      top: 30px;
+      background-color: #fec7d7;
+    }
+    
+    .button_os a{
+      font-size: 15px;
+      display: block;
+      text-decoration: none;
+      color:#0e172c;
+      transition: 1.5s;
+    }
+    
+    .button_os a:hover{
+      letter-spacing: 5px;
+    }
+    @media(min-width:1200px){
+        .links{
+            padding: 0 30% 5% 30%;
+        }
+    }
