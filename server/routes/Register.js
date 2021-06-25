@@ -18,9 +18,10 @@ const AddUser = async (req, res) => {
         const rData = await redData.save();
         res.json(rData)
         console.log("Data Registered")
+    
     }
     catch(err){
-        res.json({message:err})
+        res.json({message:"ERRRO"})
     }
 };
 
