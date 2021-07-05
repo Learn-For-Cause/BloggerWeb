@@ -5,6 +5,9 @@ import { TextField, Button } from "@material-ui/core";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/client";
+import axios from "axios";
+import Login from "./login";
+import { redirect } from "next/dist/next-server/server/api-utils";
 
 const SignUp = () => {
   const router = useRouter();
@@ -21,7 +24,11 @@ const SignUp = () => {
   };
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    console.log(formData);
+    axios.post('http://localhost:7070/addUser', formData).then((res) => {
+      console.log(res);
+      alert('registered')
+      router.push('/')
+    });
   };
   return (
     <div className={classes.root}>

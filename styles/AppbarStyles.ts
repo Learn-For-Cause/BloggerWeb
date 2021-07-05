@@ -3,7 +3,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 export const useAppBarStyles = makeStyles(() =>
   createStyles({
     appbar: {
-      height: "14vh",
+      height: "8vh",
       width: "100vw",
       backgroundColor: "white",
       boxShadow: "0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
@@ -12,7 +12,9 @@ export const useAppBarStyles = makeStyles(() =>
       alignItems: "center",
       justifyContent: "space-between",
       padding: "0.7%",
-      fontFamily:'Montserrat'
+      fontFamily:'Montserrat',
+      paddingLeft:'50px',
+      paddingRight:'50px'
     },
     left: {
       height: "98%",

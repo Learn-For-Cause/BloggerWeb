@@ -11,4 +11,8 @@ export default NextAuth({
 
   // A database is optional, but required to persist accounts in a database
   // database: process.env.DATABASE_URL,
+  session: {
+    // Seconds - How long until an idle session expires and is no longer valid.
+    maxAge: 5400,
+  }
 });

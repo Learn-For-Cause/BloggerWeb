@@ -2,7 +2,7 @@ import React from "react";
 import { MetaProps } from "../types/layout";
 import Head from "./Head";
 import Navigation from "./Navigation";
-
+import { useSession } from "next-auth/client";
 type LayoutProps = {
   children: React.ReactNode;
   customMeta?: MetaProps;
@@ -13,6 +13,7 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
     <>
       <Head customMeta={customMeta} />
       <Navigation />
+      <></>
       <main>
         <div className="max-w-5xl px-8 py-4 mx-auto">{children}</div>
       </main>
