@@ -1,9 +1,8 @@
-import React from "react";
-import { MetaProps } from "../types/layout";
-import Head from "./Head";
 import Navigation from "./Navigation";
+import React from "react";
+import Head from "./Head";
 
-const Layout = ({ children, customMeta }) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Head />
