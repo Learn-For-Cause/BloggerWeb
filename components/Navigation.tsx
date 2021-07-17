@@ -3,6 +3,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import React, { useState } from "react";
 import Image from "next/image";
+import { signOut } from "next-auth/client";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -45,7 +46,14 @@ const Navigation = () => {
                 >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                   <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      handleClose();
+                      signOut();
+                    }}
+                  >
+                    Logout
+                  </MenuItem>
                 </Menu>
               </Col>
             </Row>
