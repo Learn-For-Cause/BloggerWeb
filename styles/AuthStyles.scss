@@ -1,0 +1,54 @@
+@import "./Variables.scss";
+
+.root-box {
+  height: 70vh;
+  width: 56vw;
+  padding: 0;
+  border-radius: 14px;
+  background-color: $primary;
+  .main-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .left {
+      height: 100%;
+      width: 37%;
+      color: azure;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        cursor: pointer;
+        &:hover {
+          color: rgb(142, 175, 247);
+        }
+      }
+    }
+    .right {
+      border-radius: 0 14px 14px 0;
+      height: 100%;
+      width: 63%;
+      background-color: $secondary;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .my-form {
+        width: 75%;
+      }
+    }
+    .login {
+      background-color: midnightblue;
+    }
+    .google {
+      background-color: white;
+      img {
+        height: 28px;
+        width: 28px;
+      }
+    }
+  }
+}
