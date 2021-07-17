@@ -19,9 +19,9 @@ const Navigation = () => {
   return (
     <>
       <Container className="appbar" fluid>
-        <Row className="appbar-row justify-content-between align-items-center">
+        <Row className="justify-content-between align-items-center">
           <Col className="brand align-items-center" sm={4}>
-            <p>Web Blogger</p>
+            <h3>Web Blogger</h3>
           </Col>
           <Col sm={4}>
             <Row className="justify-content-end align-items-center">

@@ -26,9 +26,18 @@ const Login = () => {
   };
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    axios.post(`${process.env.API_URL}/authUser`, data).then((res) => {
-      console.log(res);
-    });
+    console.log(data);
+
+    axios
+      .post(
+        isLogin
+          ? `${process.env.API_URL}/authUser`
+          : `${process.env.API_URL}/addUser`,
+        data
+      )
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   return (
@@ -38,11 +47,16 @@ const Login = () => {
           <Col sm={5} className="root-box">
             <div className="main-box">
               <div className="left">
-                {isLogin ? <h3>L O G I N</h3> : <h3>S I G N U P</h3>}
                 {isLogin ? (
-                  <p onClick={handleAuthState}>Create an Account?</p>
+                  <>
+                    <h3>L O G I N</h3>
+                    <p onClick={handleAuthState}>Create an Account?</p>
+                  </>
                 ) : (
-                  <p onClick={handleAuthState}>Already have an Account?</p>
+                  <>
+                    <h3>S I G N U P</h3>
+                    <p onClick={handleAuthState}>Already have an Account?</p>
+                  </>
                 )}
               </div>
               <div className="right">
@@ -57,7 +71,7 @@ const Login = () => {
                           placeholder="Full Name"
                         />
                         <Form.Control.Feedback type="invalid">
-                          Account Name is required.
+                          Name is required.
                         </Form.Control.Feedback>
                       </>
                     )}
@@ -69,7 +83,7 @@ const Login = () => {
                       placeholder="Email"
                     />
                     <Form.Control.Feedback type="invalid">
-                      Account Name is required.
+                      Email is required.
                     </Form.Control.Feedback>
                     <Form.Control
                       isInvalid={!!errors.password}
@@ -79,7 +93,7 @@ const Login = () => {
                       placeholder="Password"
                     />
                     <Form.Control.Feedback type="invalid">
-                      Account Name is required.
+                      Password is required.
                     </Form.Control.Feedback>
                     <div className="w-100 mt-4 d-flex flex-column justify-content-center align-items-center">
                       <Button
