@@ -1,14 +1,16 @@
+import { useAppSelector } from "../redux/hooks";
 import BlogList from "../components/BlogList";
 import { useSession } from "next-auth/client";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Login from "./login";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const Index = () => {
   const [session] = useSession();
+  const myCustomSession = useAppSelector((state) => state.sessionState).value;
 
-  if (!session) {
+  if (!session && Object.keys(myCustomSession).length === 0) {
     return (
       <>
         <Login />

@@ -4,10 +4,12 @@ import Menu from "@material-ui/core/Menu";
 import React, { useState } from "react";
 import Image from "next/image";
 import { signOut } from "next-auth/client";
+import { useAppDispatch } from "../redux/hooks";
+import { logout } from "../redux/AuthSlice";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
+  const dispatch = useAppDispatch();
   const handleClick = (event: {
     currentTarget: React.SetStateAction<HTMLElement>;
   }) => {
@@ -17,6 +19,14 @@ const Navigation = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    signOut();
+    dispatch(logout());
+    handleClose();
+  };
+
   return (
     <>
       <Container className="appbar" fluid>
@@ -46,14 +56,7 @@ const Navigation = () => {
                 >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                   <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem
-                    onClick={() => {
-                      handleClose();
-                      signOut();
-                    }}
-                  >
-                    Logout
-                  </MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Menu>
               </Col>
             </Row>
