@@ -14,7 +14,7 @@ import {
   Typography,
   CardHeader,
 } from "@material-ui/core/";
-
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function BlogList() {
+  const customSession = useAppSelector((state) => state.sessionState).value;
+  console.log(customSession);
+
   const data = [
     { quarter: 1, earnings: 13000 },
     { quarter: 2, earnings: 16500 },

@@ -1,11 +1,12 @@
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { signIn, useSession } from "next-auth/client";
+import { signIn } from "next-auth/client";
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import axios from "axios";
+import MyToast from "../components/Toast";
+import { useAppDispatch } from "../redux/hooks";
+import { customSession } from "../redux/AuthSlice";
 
 type Inputs = {
   name: string;
@@ -14,7 +15,10 @@ type Inputs = {
 };
 
 const Login = () => {
+  const dispatch = useAppDispatch();
   const [isLogin, setAuthState] = useState(true);
+  const [isVisible, setVisible] = useState(false);
+  const [toastData, setData] = useState("");
   const {
     register,
     handleSubmit,
@@ -26,17 +30,52 @@ const Login = () => {
   };
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-
     axios
       .post(
         isLogin
-          ? `${process.env.API_URL}/authUser`
-          : `${process.env.API_URL}/addUser`,
+          ? `http://localhost:7070/login`
+          : `http://localhost:7070/register`,
         data
       )
       .then((res) => {
-        console.log(res);
+        switch (res.data.userResponse) {
+          case "Account Exists": {
+            setData(res.data.userResponse);
+            setVisible(true);
+            break;
+          }
+          case "Proceed":
+            const mySession = {
+              user: {
+                name: res.data.response.userName,
+                email: res.data.response.userEmail,
+              },
+              accessToken: res.data.signedToken,
+              expires: res.data.expiresIn,
+            };
+            dispatch(customSession(mySession));
+            localStorage.setItem("Auth", JSON.stringify(mySession));
+            break;
+          case "Server Error": {
+            setData(res.data.userResponse);
+            setVisible(true);
+            break;
+          }
+          case "Wrong Password": {
+            setData(res.data.userResponse);
+            setVisible(true);
+            break;
+          }
+          case "Unregistered": {
+            setData(res.data.userResponse);
+            setVisible(true);
+            setAuthState(false);
+            break;
+          }
+          default:
+            console.log("Dude You Messed Up Somewhere");
+            break;
+        }
       });
   };
 
@@ -120,6 +159,7 @@ const Login = () => {
           </Col>
         </Row>
       </Container>
+      <MyToast isVisible={isVisible} data={toastData} />;
     </>
   );
 };
