@@ -13,6 +13,6 @@ export default NextAuth({
   // database: process.env.DATABASE_URL,
   session: {
     // Seconds - How long until an idle session expires and is no longer valid.
-    maxAge: 5400,
+    maxAge: 3600,
   }
 });

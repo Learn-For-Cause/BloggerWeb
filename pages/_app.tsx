@@ -1,9 +1,11 @@
-import { ThemeProvider } from "next-themes";
-import type { AppProps } from "next/app";
-import React from "react";
-import "../styles/globals.css";
+import { Provider as ReduxProvider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "next-auth/client";
-import "tailwindcss/tailwind.css";
+import type { AppProps } from "next/app";
+import { store } from "../redux/Store";
+import React from "react";
+// Styles
+import "../styles/MainStyles.scss";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   React.useEffect(() => {
@@ -15,11 +17,11 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   }, []);
 
   return (
-    <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
+    <ReduxProvider store={store}>
       <Provider session={pageProps.session}>
         <Component {...pageProps} />
       </Provider>
-    </ThemeProvider>
+    </ReduxProvider>
   );
 };
 
