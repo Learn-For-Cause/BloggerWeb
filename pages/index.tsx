@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Login from "./login";
 import React, { useEffect, useState } from "react";
-
+import Landing from './landing';
 export const Index = () => {
   const [session] = useSession();
   const myCustomSession = useAppSelector((state) => state.sessionState).value;
@@ -13,7 +13,7 @@ export const Index = () => {
   if (!session && Object.keys(myCustomSession).length === 0) {
     return (
       <>
-        <Login />
+        <Landing />
       </>
     );
   } else {
