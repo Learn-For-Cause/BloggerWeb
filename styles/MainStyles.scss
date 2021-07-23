@@ -11,6 +11,22 @@
 .appbar {
   background-color: $secondary;
   padding: 3px 7px 3px 7px;
+  z-index: 77;
+  .logo {
+    height: 42px;
+    width: 42px;
+  }
+  .brand {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 2px;
+    white-space: nowrap;
+    color: $primary;
+    &:hover {
+      color: #055052;
+      cursor: pointer;
+    }
+  }
 }
 
 // ========================================

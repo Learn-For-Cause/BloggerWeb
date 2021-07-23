@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BlogList() {
   const customSession = useAppSelector((state) => state.sessionState).value;
-  console.log(customSession);
 
   const data = [
     { quarter: 1, earnings: 13000 },

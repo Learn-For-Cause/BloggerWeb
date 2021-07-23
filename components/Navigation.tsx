@@ -1,15 +1,18 @@
 import { Row, Col, Container, Form } from "react-bootstrap";
 import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import React, { useState } from "react";
-import Image from "next/image";
-import { signOut } from "next-auth/client";
 import { useAppDispatch } from "../redux/hooks";
 import { logout } from "../redux/AuthSlice";
+import Menu from "@material-ui/core/Menu";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import Link from "next/link";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const dispatch = useAppDispatch();
+  const router = useRouter();
+
   const handleClick = (event: {
     currentTarget: React.SetStateAction<HTMLElement>;
   }) => {
@@ -20,10 +23,13 @@ const Navigation = () => {
     setAnchorEl(null);
   };
 
+  const handleMyAccountRedirect = () => router.push("/account");
+  const handleSettingsRedirect = () => router.push("/setting");
+
   const handleLogout = () => {
     localStorage.clear();
-    signOut();
     dispatch(logout());
+    router.push("/login");
     handleClose();
   };
 
@@ -31,20 +37,28 @@ const Navigation = () => {
     <>
       <Container className="appbar" fluid>
         <Row className="justify-content-between align-items-center">
-          <Col className="brand align-items-center" sm={4}>
-            <h3>Web Blogger</h3>
-          </Col>
-          <Col sm={4}>
-            <Row className="justify-content-end align-items-center">
-              <Col className="align-items-center" sm={7}>
-                <Form.Control placeholder="Search blogs..." />
+          <Col md={4}>
+            <Row className="justify-content-start align-items-center">
+              <Col md={2}>
+                <img className="logo" src="/images/logo.png" alt="" />
               </Col>
-              <Col className="align-items-center" sm={2}>
-                <Image
+              <Col md={4}>
+                <Link href="/home">
+                  <p className="brand">W E B X</p>
+                </Link>
+              </Col>
+            </Row>
+          </Col>
+          <Col md={5}>
+            <Row className="justify-content-end align-items-center">
+              <Col md={7}>
+                <Form.Control placeholder="Search..." />
+              </Col>
+              <Col md={2}>
+                <img
                   onClick={handleClick}
-                  width={49}
-                  height={49}
-                  src="/avatar.png"
+                  className="logo"
+                  src="/images/profile.png"
                   alt=""
                 />
                 <Menu
@@ -54,8 +68,10 @@ const Navigation = () => {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleMyAccountRedirect}>
+                    My Account
+                  </MenuItem>
+                  <MenuItem onClick={handleSettingsRedirect}>Settings</MenuItem>
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Menu>
               </Col>
