@@ -42,7 +42,7 @@ export default function BlogList() {
           container
           spacing={2}
           direction="row"
-          justify="space-around"
+          justifyContent="space-around"
           alignItems="flex-start"
         >
           {data.map((data, index) => (
