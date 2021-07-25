@@ -29,6 +29,10 @@
       animation-name: heading-animation;
       animation-duration: 4s;
       animation-timing-function: ease-out;
+      @include respond(phone) {
+        letter-spacing: 1rem;
+        font-size: 5rem;
+      }
     }
     .btn {
       background-color: #fff;
@@ -46,6 +50,31 @@
         transform: translateY(-0.2rem);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
       }
+    }
+  }
+}
+
+.landing-body {
+  height: 95vh;
+  position: relative;
+  .landing-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    text-align: center;
+    .heading {
+      background: -webkit-linear-gradient(#0f044ccc, #548ba6cc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 4rem;
+      display: block;
+    }
+    .about {
+      font-size: 2rem;
     }
   }
 }

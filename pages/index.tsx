@@ -6,6 +6,8 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import IconButton from "@material-ui/core/IconButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import LandingHeader from "../components/landing/LandingHeader";
+import LandingBody from "../components/landing/LandingBody";
 
 export const Index = () => {
   const router = useRouter();
@@ -21,12 +23,8 @@ export const Index = () => {
   return (
     <>
       <Head />
-      <header className="landing-header">
-        <div className="heading-box">
-          <h1 className="heading">Bloggerx</h1>
-          <p className="btn">Get Started</p>
-        </div>
-      </header>
+      <LandingHeader />
+      <LandingBody />
     </>
   );
 };
