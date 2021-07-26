@@ -1,13 +1,10 @@
 import Head from "../components/Head";
 import React, { useState } from "react";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import IconButton from "@material-ui/core/IconButton";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import LandingHeader from "../components/landing/LandingHeader";
 import LandingBody from "../components/landing/LandingBody";
+import LandingContactUs from "../components/landing/landingContactUs";
 
 export const Index = () => {
   const router = useRouter();
@@ -23,8 +20,9 @@ export const Index = () => {
   return (
     <>
       <Head />
-      <LandingHeader />
+      <LandingHeader handleGetStarted={() => handleRedirect()} />
       <LandingBody />
+      <LandingContactUs />
     </>
   );
 };

@@ -45,6 +45,7 @@
       &:hover {
         transform: translateY(0.1rem);
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        color: black;
       }
       &:active {
         transform: translateY(-0.2rem);
@@ -55,6 +56,7 @@
 }
 
 .landing-body {
+  margin-top: 4vh;
   height: 95vh;
   position: relative;
   .landing-box {
@@ -77,4 +79,46 @@
       font-size: 2rem;
     }
   }
+}
+
+.landing-contact {
+  height: 77vh;
+  background-image: linear-gradient(to right bottom, #0f044ccc, #548ba6cc),
+    url("../../public/images/header.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 21vh);
+  .landing-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    text-align: center;
+    .heading {
+      color: #fff;
+      font-weight: bold;
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 4rem;
+    }
+    .icons-box {
+      width: 100%;
+      @include flexBox(row, space-evenly, center);
+      .icons {
+        color: whitesmoke;
+        height: 3.5rem;
+        width: 3.5rem;
+        &:hover {
+          color: azure;
+          transform: translateY(0.5rem);
+        }
+      }
+    }
+  }
+}
+
+.landing-footer {
+  height: 50vh;
 }

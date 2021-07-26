@@ -1,10 +1,16 @@
-const LandingHeader = () => {
+interface Props {
+  handleGetStarted: any;
+}
+
+const LandingHeader = (props: Props) => {
   return (
     <>
       <header className="landing-header">
         <div className="heading-box">
           <h1 className="heading">Bloggerx</h1>
-          <p className="btn">Get Started</p>
+          <p onClick={props.handleGetStarted} className="btn">
+            Get Started
+          </p>
         </div>
       </header>
     </>
