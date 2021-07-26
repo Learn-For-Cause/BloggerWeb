@@ -6,21 +6,69 @@
 
 .appbar {
   background-color: $secondary;
-  padding: 3px 7px 3px 7px;
+  padding: 0.4rem 1rem;
   z-index: 77;
-  .logo {
-    height: 42px;
-    width: 42px;
-  }
+  height: 10vh;
+  @include flexBox(row, space-between, center);
   .brand {
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin: 2px;
-    white-space: nowrap;
-    color: $primary;
-    &:hover {
-      color: #055052;
-      cursor: pointer;
+    width: 30%;
+    @include flexBox(row, space-evenly, center);
+    .logo {
+      height: 4rem;
+      width: 4rem;
+    }
+    .title {
+      margin: 0 2rem;
+      padding: 0;
+      font-size: 2.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+    }
+  }
+  .search {
+    width: 30%;
+    @include flexBox(row, space-evenly, center);
+    .my-form {
+      width: 65%;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include respond(tab-land) {
+  // width < 1200?
+  .appbar {
+    .brand {
+      width: 45%;
+    }
+    .search {
+      width: 45%;
+    }
+  }
+}
+
+@include respond(tab-port) {
+  // width < 900?
+  .appbar {
+    .brand {
+      width: 50%;
+    }
+    .search {
+      width: 50%;
+    }
+  }
+}
+@include respond(phone) {
+  // width < 600?
+  .appbar {
+    height: 20vh;
+    @include flexBox(column, space-evenly, center);
+    .brand {
+      width: 100%;
+    }
+    .search {
+      width: 100%;
     }
   }
 }

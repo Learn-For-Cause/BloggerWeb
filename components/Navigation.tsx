@@ -1,4 +1,6 @@
 import { Row, Col, Container, Form } from "react-bootstrap";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 import MenuItem from "@material-ui/core/MenuItem";
 import { useAppDispatch } from "../redux/hooks";
 import { logout } from "../redux/AuthSlice";
@@ -7,9 +9,20 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Link from "next/link";
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: "flex",
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+  })
+);
+
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
+  const classes = useStyles();
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -35,50 +48,32 @@ const Navigation = () => {
 
   return (
     <>
-      <Container className="appbar" fluid>
-        <Row className="justify-content-between align-items-center">
-          <Col md={4}>
-            <Row className="justify-content-start align-items-center">
-              <Col md={2}>
-                <img className="logo" src="/images/logo.png" alt="" />
-              </Col>
-              <Col md={4}>
-                <Link href="/home">
-                  <p className="brand">W E B X</p>
-                </Link>
-              </Col>
-            </Row>
-          </Col>
-          <Col md={5}>
-            <Row className="justify-content-end align-items-center">
-              <Col md={7}>
-                <Form.Control placeholder="Search..." />
-              </Col>
-              <Col md={2}>
-                <img
-                  onClick={handleClick}
-                  className="logo"
-                  src="/images/profile.png"
-                  alt=""
-                />
-                <Menu
-                  id="simple-menu"
-                  anchorEl={anchorEl}
-                  keepMounted
-                  open={Boolean(anchorEl)}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleMyAccountRedirect}>
-                    My Account
-                  </MenuItem>
-                  <MenuItem onClick={handleSettingsRedirect}>Settings</MenuItem>
-                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                </Menu>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+      <div className="appbar">
+        <div className="brand">
+          <img className="logo" src="/images/logo.svg" alt="" />
+          <p className="title">Web Blogger</p>
+        </div>
+        <div className="search">
+          <Form.Control className="my-form" placeholder="Search..." />
+          <Avatar
+            onClick={handleClick}
+            className="avatar"
+            alt="Cindy Baker"
+            src="/images/profile.png"
+          />
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleMyAccountRedirect}>My Account</MenuItem>
+            <MenuItem onClick={handleSettingsRedirect}>Settings</MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+          </Menu>
+        </div>
+      </div>
     </>
   );
 };
