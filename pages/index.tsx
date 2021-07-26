@@ -1,31 +1,30 @@
-import { useAppSelector } from "../redux/hooks";
-import BlogList from "../components/BlogList";
-import { useSession } from "next-auth/client";
-import Layout from "../components/Layout";
-import Header from "../components/Header";
-import Login from "./login";
-import React, { useEffect, useState } from "react";
+import Head from "../components/Head";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import LandingHeader from "../components/landing/LandingHeader";
+import LandingBody from "../components/landing/LandingBody";
+import LandingContactUs from "../components/landing/landingContactUs";
 
 export const Index = () => {
-  const [session] = useSession();
-  const myCustomSession = useAppSelector((state) => state.sessionState).value;
+  const router = useRouter();
+  const [auth, setAuth] = useState(null);
 
-  if (!session && Object.keys(myCustomSession).length === 0) {
-    return (
-      <>
-        <Login />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Layout>
-          <Header />
-          <BlogList />
-        </Layout>
-      </>
-    );
-  }
+  const handleRedirect = () => {
+    auth ? router.push("/home") : router.push("/login");
+  };
+
+  useEffect(() => {
+    setAuth(localStorage.getItem("Auth"));
+  }, []);
+  return (
+    <>
+      <Head />
+      <LandingHeader handleGetStarted={() => handleRedirect()} />
+      <LandingBody />
+      <LandingContactUs />
+    </>
+  );
 };
 
 export default Index;

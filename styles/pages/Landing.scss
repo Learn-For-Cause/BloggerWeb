@@ -1,0 +1,124 @@
+@import "../constants/animations";
+@import "../constants/base";
+@import "../constants/mixins";
+@import "../constants/variables";
+@import "../constants/fonts";
+
+.landing-header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, #0f044ccc, #548ba6cc),
+    url("../../public/images/header.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 77vh, 0 100%);
+  .heading-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    text-align: center;
+    .heading {
+      margin-bottom: 6rem;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3.5rem;
+      animation-name: heading-animation;
+      animation-duration: 4s;
+      animation-timing-function: ease-out;
+      @include respond(phone) {
+        letter-spacing: 1rem;
+        font-size: 5rem;
+      }
+    }
+    .btn {
+      background-color: #fff;
+      text-transform: uppercase;
+      color: #777;
+      font-size: 1.6rem;
+      border-radius: 5rem;
+      padding: 0.7rem 1.5rem;
+      transition: all 0.2s;
+      &:hover {
+        transform: translateY(0.1rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        color: black;
+      }
+      &:active {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.landing-body {
+  margin-top: 4vh;
+  height: 95vh;
+  position: relative;
+  .landing-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    text-align: center;
+    .heading {
+      background: -webkit-linear-gradient(#0f044ccc, #548ba6cc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 4rem;
+      display: block;
+    }
+    .about {
+      font-size: 2rem;
+    }
+  }
+}
+
+.landing-contact {
+  height: 77vh;
+  background-image: linear-gradient(to right bottom, #0f044ccc, #548ba6cc),
+    url("../../public/images/header.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 21vh);
+  .landing-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    text-align: center;
+    .heading {
+      color: #fff;
+      font-weight: bold;
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 4rem;
+    }
+    .icons-box {
+      width: 100%;
+      @include flexBox(row, space-evenly, center);
+      .icons {
+        color: whitesmoke;
+        height: 3.5rem;
+        width: 3.5rem;
+        &:hover {
+          color: azure;
+          transform: translateY(0.5rem);
+        }
+      }
+    }
+  }
+}
+
+.landing-footer {
+  height: 50vh;
+}

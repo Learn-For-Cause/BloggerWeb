@@ -1,0 +1,74 @@
+@import "../constants/animations";
+@import "../constants/base";
+@import "../constants/mixins";
+@import "../constants/variables";
+@import "../constants/fonts";
+
+.appbar {
+  background-color: $secondary;
+  padding: 0.4rem 1rem;
+  z-index: 77;
+  height: 10vh;
+  @include flexBox(row, space-between, center);
+  .brand {
+    width: 30%;
+    @include flexBox(row, space-evenly, center);
+    .logo {
+      height: 4rem;
+      width: 4rem;
+    }
+    .title {
+      margin: 0 2rem;
+      padding: 0;
+      font-size: 2.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+    }
+  }
+  .search {
+    width: 30%;
+    @include flexBox(row, space-evenly, center);
+    .my-form {
+      width: 65%;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include respond(tab-land) {
+  // width < 1200?
+  .appbar {
+    .brand {
+      width: 45%;
+    }
+    .search {
+      width: 45%;
+    }
+  }
+}
+
+@include respond(tab-port) {
+  // width < 900?
+  .appbar {
+    .brand {
+      width: 50%;
+    }
+    .search {
+      width: 50%;
+    }
+  }
+}
+@include respond(phone) {
+  // width < 600?
+  .appbar {
+    height: 20vh;
+    @include flexBox(column, space-evenly, center);
+    .brand {
+      width: 100%;
+    }
+    .search {
+      width: 100%;
+    }
+  }
+}

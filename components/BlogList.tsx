@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BlogList() {
   const customSession = useAppSelector((state) => state.sessionState).value;
-  console.log(customSession);
 
   const data = [
     { quarter: 1, earnings: 13000 },
@@ -43,7 +42,7 @@ export default function BlogList() {
           container
           spacing={2}
           direction="row"
-          justify="space-around"
+          justifyContent="space-around"
           alignItems="flex-start"
         >
           {data.map((data, index) => (
