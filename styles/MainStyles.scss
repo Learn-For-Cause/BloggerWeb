@@ -1,41 +1,14 @@
 // ========================================
-// Auth Styles
+// Constants
 // ========================================
-@import "./Variables.scss";
-@import "./AuthStyles.scss";
+@import "./constants/animations";
+@import "./constants/base";
+@import "./constants/mixins";
+@import "./constants/variables";
+@import "./constants/fonts";
 
 // ========================================
-// Navbar Styles
+// Page Styles
 // ========================================
-
-.appbar {
-  background-color: $secondary;
-  padding: 3px 7px 3px 7px;
-}
-
-// ========================================
-// Header Styles
-// ========================================
-
-.my-header {
-  height: 49vh;
-  width: 100%;
-
-  .image-col {
-    width: 100%;
-    img {
-      border-radius: 14px;
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
-
-// ========================================
-// Blog Styles
-// ========================================
-
-.blog {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
+@import "./pages/Landing.scss";
+@import "./pages/Navigation.scss";

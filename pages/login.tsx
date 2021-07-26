@@ -7,6 +7,9 @@ import axios from "axios";
 import MyToast from "../components/Toast";
 import { useAppDispatch } from "../redux/hooks";
 import { customSession } from "../redux/AuthSlice";
+import { GoogleLogin } from "react-google-login";
+import { useRouter } from "next/router";
+import Home from "./home";
 
 type Inputs = {
   name: string;
@@ -16,6 +19,7 @@ type Inputs = {
 
 const Login = () => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const [isLogin, setAuthState] = useState(true);
   const [isVisible, setVisible] = useState(false);
   const [toastData, setData] = useState("");
@@ -55,6 +59,7 @@ const Login = () => {
             };
             dispatch(customSession(mySession));
             localStorage.setItem("Auth", JSON.stringify(mySession));
+            router.push("/home");
             break;
           case "Server Error": {
             setData(res.data.userResponse);
@@ -77,6 +82,19 @@ const Login = () => {
             break;
         }
       });
+  };
+  const id =
+    "452084354911-nm9m0ml9ujqnr471j3uqsv3370401r8q.apps.googleusercontent.com";
+
+  const googleSuccess = async (res: any) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+    localStorage.setItem("Auth", JSON.stringify({ result, token }));
+    router.push("/home");
+  };
+
+  const googleFailure = () => {
+    console.log("OOps");
   };
 
   return (
@@ -143,14 +161,30 @@ const Login = () => {
                       >
                         {isLogin ? "Login" : "Sign Up"}
                       </Button>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className="google mt-3 w-75"
-                        onClick={() => signIn()}
-                      >
-                        <img src="./google.png" alt="" />
-                      </Button>
+                      {/* <Button
+                          variant="contained"
+                          color="primary"
+                          className="google mt-3 w-75"
+                          onClick={() => signIn()}
+                        >
+                          <img src="./google.png" alt="" />
+                        </Button> */}
+                      <GoogleLogin
+                        clientId={id}
+                        render={(renderProps) => (
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            className="google mt-3 w-75"
+                            onClick={renderProps.onClick}
+                          >
+                            <img src="./google.png" alt="" />
+                          </Button>
+                        )}
+                        onSuccess={googleSuccess}
+                        onFailure={googleFailure}
+                        cookiePolicy="single_host_origin"
+                      />
                     </div>
                   </Form>
                 </div>

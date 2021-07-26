@@ -1,6 +1,5 @@
 import { Provider as ReduxProvider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Provider } from "next-auth/client";
 import type { AppProps } from "next/app";
 import { store } from "../redux/Store";
 import React from "react";
@@ -18,9 +17,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   return (
     <ReduxProvider store={store}>
-      <Provider session={pageProps.session}>
-        <Component {...pageProps} />
-      </Provider>
+      <Component {...pageProps} />
     </ReduxProvider>
   );
 };
