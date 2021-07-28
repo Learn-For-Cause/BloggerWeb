@@ -1,2 +1,0 @@
-PORT = 7070
-MONGO_URI = mongodb+srv://kevkanae:crysis123@blogcluster.utcvb.mongodb.net/webx?retryWrites=true&w=majority

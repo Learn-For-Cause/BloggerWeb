@@ -37,8 +37,8 @@ const Login = () => {
     axios
       .post(
         isLogin
-          ? `http://localhost:7070/login`
-          : `http://localhost:7070/register`,
+          ? `http://localhost:5000/login`
+          : `http://localhost:5000/register`,
         data
       )
       .then((res) => {
