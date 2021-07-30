@@ -1,0 +1,295 @@
+.form_container{
+  margin: 5% 20% 5% 20%;
+}
+.Form_SubmitBtn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .Form_SubmitBtn  button {
+      background: #080808;
+      color: #fff;
+      font-weight: 600;
+      text-transform: inherit;
+      padding: 6px;
+      width: 100%;
+      max-width: 200px;
+      font-size: 17px;
+    }
+
+  .Form_SubmitBtn  button:hover {
+      background: #080808;
+      color: #fff;
+    }
+  
+  .Form_SubmitBtn h1 {
+    color: #191919;
+    font-size: 50px;
+    font-weight: 400;
+  }
+
+  .Form_InputDivs {
+    margin: 35px 0;
+  }
+  .Form_InputDivs  p {
+      font-weight: 600;
+      color: #191919;
+      margin-bottom: 5px;
+    }
+
+  .Form_InputDivs  input {
+      padding: 10px;
+      width: 100%;
+      font-size: 18px;
+      outline-width: 0;
+      border: 1px solid #191919;
+      border-radius: 5px;
+  }
+  
+
+
+.App_posts {
+  border-top: 1px solid #e6e6e6;
+}
+
+.Posts {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 30px 0;
+  cursor: pointer;
+  width: 100%;
+}
+.Posts .MuiSvgIcon-root {
+    color: #757575;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+ .Posts_TimeStamps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    width: 100%;
+ }
+    .Posts_Bookmark {
+      font-size: 25px;
+    }
+
+    .Posts_TimeStamps .MuiSvgIcon-root {
+      margin: 0 5px;
+    }
+
+    .Posts_TimeStamp_Paragraph {
+      display: flex;
+      align-items: center;
+      color: #757575;
+    }
+    .Posts_TimeStamp_Paragraph  span {
+        font-family: "Open Sans", sans-serif !important;
+        color: #757575;
+        font-weight: 400;
+        font-size: 13px;
+      }
+    
+  
+
+  .Posts_image {
+    margin-left: 15px;
+    height: 100px;
+    width: 250px;
+    background: red;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .Posts_Text {
+    width: 100%;
+  }
+
+  .Posts_Text  h2 {
+      font-weight: 700;
+      font-size: 23px;
+      color: #2a2a2a;
+      font-family: "Open Sans", sans-serif !important;
+    }
+
+  .Posts_Text p {
+      font-weight: 500;
+      color: #7f7f7f;
+      font-size: 15px;
+      margin: 5px 0;
+      font-family: "Open Sans", sans-serif !important;
+    }
+  
+
+
+    .postBody {
+      display: flex;
+      align-items: center;
+     } 
+     .postBody{
+       padding: 5% 10% 5% 10%;
+     }
+     .postBody_header{
+       display: flex;
+     }
+     .postBody_name{
+       font-size: large;
+       display: flex;
+       flex-direction: row;
+       flex:0.95;
+       color: rgb(109, 109, 204);
+     }
+     .postBody_name h2{
+       position: relative;
+       top:10px;
+       cursor: pointer;
+     }
+     .postBody_name button{
+       margin: 4px 15px;
+       height: 35px;
+       border-radius: 20px;
+       background-color: rgb(217, 223, 164);
+     }
+     .postBody_material_icons{
+       position: relative;
+       top:-3px;
+       
+     }
+     .postBody_image img{
+      max-width: 100%;
+      min-height: 500px;
+      display: block;
+      background-position: center;
+      background-size: cover;
+      margin:30px auto;
+    }
+
+  .postBody .MuiSvgIcon-root {
+    cursor: pointer;
+  }
+  .postBody_Container_icons {
+    display: flex;
+  }
+  .postBody_Container_icon {
+    padding: 5px;
+    cursor: pointer;
+  }
+  .postBody .postBody_Container,
+  .MuiSvgIcon-root {
+    cursor: pointer;
+  }
+
+  .postContainer {
+    padding: 80px 0px;
+  }
+
+  .postBody_icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+    .postBody_Container {
+      display: flex;
+      align-items: center;
+    }
+    .postBody_Container  h3 {
+        font-weight: 400;
+        font-size: 17px;
+        margin: 0 10px;
+    }
+    
+
+    .postBody_Container:last-child 
+      .MuiSvgIcon-root {
+        margin-left: 15px;
+        color: #3d3d3d;
+      }
+    
+
+    
+  
+
+  .postBody_container {
+    width: 100%;
+    
+  }
+  
+
+  .postBody_container  p {
+      color: #7f7f7f;
+      font-size: 20px;
+      margin: 5px 0;
+      padding: 2% 10%;
+      font-weight: 500;
+    }
+
+    .postBody_container h1 {
+      text-align: center;
+      font-size: 50px;
+      color: #2a2a2a;
+    }
+  
+
+    .postBody_container h1
+    {
+    
+    font-family: "Open Sans", sans-serif !important;
+    }
+
+    .postBody_container h3
+    {
+      font-family: "Open Sans", sans-serif !important;
+    }
+    .postBody_container p{
+      font-family: "Open Sans", sans-serif !important;
+     }
+
+
+.PostNav {
+  padding: 20px;
+  background: #9ac4f8;
+  width: 100%;
+}
+  .PostNav_Container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .PostNav  button {
+      text-transform: inherit;
+      font-size: 17px;
+      color: #13426f;
+      padding: 4px 20px;
+    }
+
+    .PostNav button:last-child {
+      border: 1px solid #13426f;
+      border-radius: 50px;
+    }
+.topics_container{
+  background-color: rgb(238, 80, 80);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin:20px;
+}
+.topics_container h3{
+  padding: 10px;
+}
+.topics_list{
+  margin:10px;
+}
+.topic_name{
+  display: inline;
+  flex-direction: column;
+  margin:5px;
+  border:1px solid black;
+  border-radius: 6px;
+  padding: 2px;
+  background-color: white;
+}
