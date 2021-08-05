@@ -1,3 +1,8 @@
+.publication_app{
+  display: flex;
+  flex-direction: row;
+}
+
 .form_container{
   margin: 5% 20% 5% 20%;
 }
@@ -50,6 +55,8 @@
 
 .App_posts {
   border-top: 1px solid #e6e6e6;
+  flex:.75;
+  padding-left: 30px;
 }
 
 .Posts {
@@ -148,15 +155,15 @@
        cursor: pointer;
      }
      .postBody_name button{
+       padding: 0px 10px;
        margin: 4px 15px;
        height: 35px;
        border-radius: 20px;
-       background-color: rgb(217, 223, 164);
+       background-color: rgb(184, 207, 250);
      }
      .postBody_material_icons{
        position: relative;
        top:-3px;
-       
      }
      .postBody_image img{
       max-width: 100%;
@@ -273,7 +280,11 @@
       border-radius: 50px;
     }
 .topics_container{
-  background-color: rgb(238, 80, 80);
+  position: relative;
+  top: 10px;
+  height: 25vh;
+  flex:0.3;
+  background-color: rgb(211, 218, 248);
   border: 1px solid black;
   border-radius: 5px;
   margin:20px;
@@ -292,4 +303,9 @@
   border-radius: 6px;
   padding: 2px;
   background-color: white;
+}
+@media only screen and (max-width: 800px) {
+  .publication_app{
+    flex-direction: column;
+  }
 }

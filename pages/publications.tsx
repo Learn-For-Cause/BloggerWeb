@@ -28,6 +28,16 @@ export default function publications() {
     return (
         <>
                 <Navigation />
+                <div className={styles.publication_app}>
+                
+                <div className={styles.App_posts}>
+                    <Container>
+                        {posts.map(({ id, data }) => (
+                            <Blogs key={id} id={id} data={data} />
+                        ))}
+                    </Container>
+                </div>
+
                 <div className={styles.topics_container}>
                     <h3>SELECT TOPIC OF YOUR INTEREST</h3>
                     <div className={styles.topics_list}>
@@ -43,14 +53,7 @@ export default function publications() {
                         ))}
                     </div>
                 </div>
-                <div className={styles.App_posts}>
-                    <Container>
-                        {posts.map(({ id, data }) => (
-                            <Blogs key={id} id={id} data={data} />
-                        ))}
-                    </Container>
                 </div>
-
                 <form onSubmit={submit}>
                     <div className={styles.form_container}>
                         <h1>Create your Post</h1>

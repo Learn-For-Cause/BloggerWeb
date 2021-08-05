@@ -37,7 +37,7 @@ export default function PostBody({ id }) {
   function follow() {
     setStatus(true);
   }
-
+  
   return (
     <>
       <Navigation />
@@ -57,10 +57,10 @@ export default function PostBody({ id }) {
                 <button onClick={follow}>{status ? "Following" : "Follow"}</button>
               </div>
               <div className={styles.postBody_material_icons}>
-                <Link href="#"><IconButton><InstagramIcon /></IconButton></Link>
-                <Link href="#"><IconButton><FacebookIcon /></IconButton></Link>
-                <Link href="#"><IconButton><TwitterIcon /></IconButton></Link>
-                <Link href="#"><IconButton><BookmarkIcon /></IconButton></Link>
+                <Link href="#"><IconButton><InstagramIcon fontSize="large" /></IconButton></Link>
+                <Link href="#"><IconButton><FacebookIcon fontSize="large"/></IconButton></Link>
+                <Link href="#"><IconButton><TwitterIcon fontSize="large" /></IconButton></Link>
+                <Link href="#"><IconButton><BookmarkIcon fontSize="large"/></IconButton></Link>
               </div>
             </div>
             <hr></hr>
@@ -73,18 +73,18 @@ export default function PostBody({ id }) {
             
             <div className={styles.postBody_icons}>
               <div className={styles.postBody_Container}>
-                <ThumbsUpDownIcon />
+                <ThumbsUpDownIcon fontSize="large"/>
                 <h3 style={{ marginRight: "20px" }}>35</h3>
 
-                <ChatBubbleOutlineIcon />
+                <ChatBubbleOutlineIcon fontSize="large"/>
                 <h3>53</h3>
               </div>
               <div className={styles.postBody_Container_icons}>
                 <div className={styles.postBody_Container_icon}>
-                  <SaveAltIcon />
+                  <SaveAltIcon fontSize="large"/>
                 </div>
                 <div className={styles.postBody_Container_icon}>
-                  <BookmarkBorderOutlinedIcon />
+                  <BookmarkBorderOutlinedIcon fontSize="large"/>
                 </div>
               </div>
             </div>
