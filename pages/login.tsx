@@ -99,7 +99,7 @@ const Login = () => {
 
   return (
     <>
-      <Container className="vh-100 " fluid>
+      <Container className="vh-100" fluid>
         <Row className="justify-content-center align-items-center h-100 w-100">
           <Col sm={5} className="root-box">
             <div className="main-box">

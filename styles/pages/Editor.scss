@@ -1,0 +1,54 @@
+@import "../constants/animations";
+@import "../constants/base";
+@import "../constants/mixins";
+@import "../constants/variables";
+@import "../constants/fonts";
+
+.editor {
+  height: 100vh;
+  width: 100vw;
+  padding: 7rem;
+  @include flexBox(column, center, center);
+  .go-back {
+    width: 100%;
+
+    p {
+      background-color: $secondary;
+      padding: 1rem;
+      border-radius: 2rem;
+      &:hover {
+        cursor: pointer;
+        background-color: #b3c8f5;
+      }
+      &:active {
+        background-color: #9ab6f3;
+      }
+    }
+
+    @include flexBox(row, flex-end, center);
+  }
+  .header {
+    @include flexBox(column, center, center);
+    p {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+  .card {
+    height: 70vh;
+    width: 70vw;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0 #e5e5e5;
+    .submit-btn {
+      @include flexBox(column, center, center);
+      & > * {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .form-control {
+    font-size: 1.4rem;
+  }
+}

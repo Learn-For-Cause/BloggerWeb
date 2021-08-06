@@ -1,4 +1,8 @@
-@import "./Variables.scss";
+@import "../constants/animations";
+@import "../constants/base";
+@import "../constants/mixins";
+@import "../constants/variables";
+@import "../constants/fonts";
 
 .root-box {
   height: 70vh;
