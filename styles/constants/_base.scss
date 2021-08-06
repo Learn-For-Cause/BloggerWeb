@@ -29,6 +29,7 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.7;
   box-sizing: border-box;
+  background-color: #f6f6f6;
   @include respond(tab-port) {
     padding: 0;
   }

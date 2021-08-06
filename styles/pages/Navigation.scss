@@ -27,11 +27,26 @@
     }
   }
   .search {
-    width: 30%;
+    width: 35%;
+    height: 100%;
     @include flexBox(row, space-evenly, center);
     .my-form {
       width: 65%;
       font-size: 1.6rem;
+    }
+    .icon {
+      color: black;
+      height: 3.5rem;
+      width: 3.5rem;
+      transition: ease-in 0.1s;
+      &:hover {
+        color: #2c2b2b;
+        cursor: pointer;
+        transform: translateY(-0.1rem);
+      }
+      &:active {
+        color: dimgrey;
+      }
     }
   }
 }

@@ -4,6 +4,9 @@
 @import "../constants/variables";
 @import "../constants/fonts";
 
+//============================================
+// Header
+//============================================
 .landing-header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, #0f044ccc, #548ba6cc),
@@ -55,9 +58,12 @@
   }
 }
 
+//============================================
+// Body
+//============================================
 .landing-body {
   margin-top: 4vh;
-  height: 95vh;
+  height: 60vh;
   position: relative;
   .landing-box {
     position: absolute;
@@ -81,6 +87,32 @@
   }
 }
 
+//============================================
+// FAQ
+//============================================
+.faq {
+  height: 77vh;
+  width: 100%;
+  padding: 3rem;
+  font-size: 2rem;
+  h4 {
+    text-align: center;
+    background: -webkit-linear-gradient(#0f044ccc, #548ba6cc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 5rem;
+  }
+}
+.accordion-button {
+  font-size: 2rem;
+}
+//============================================
+// Contact
+//============================================
 .landing-contact {
   height: 77vh;
   background-image: linear-gradient(to right bottom, #0f044ccc, #548ba6cc),
@@ -117,8 +149,4 @@
       }
     }
   }
-}
-
-.landing-footer {
-  height: 50vh;
 }
