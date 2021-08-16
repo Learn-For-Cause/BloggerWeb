@@ -16,16 +16,17 @@ const Blogs = ({ id, data }) => {
           <div className={styles.Posts_TimeStamps}>
             <div className={styles.Posts_TimeStamp_Paragraph}>
               <span>
-                6.30 PM
+                {data.dateBlog}
               </span>
               &nbsp;-&nbsp;
               <span style={{ display: "flex", alignItems: "center" }}>
                 
-                6 minutes
-                <StarIcon />
+                {data.timeBlog}
+                
+                {/* <StarIcon /> */}
               </span>
               <span className={styles.topic_name} style={{border:"none"}}>
-                Art
+                {data.publication}
               </span>
             </div>
             <BookmarkBorderIcon className={styles.Posts_Bookmark} />
