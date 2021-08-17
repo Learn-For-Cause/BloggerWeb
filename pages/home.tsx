@@ -6,7 +6,7 @@ import Blogs from "../components/Blogs";
 import Link from "next/link";
 import PostBody from "./posts/[id]";
 import Navigation from "../components/Navigation";
-
+import axios from "axios";
 export default function Home() {
   const [value, setValues] = useState({
     name: "",
@@ -15,59 +15,7 @@ export default function Home() {
     paragraph: "",
     url: "",
   });
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      data: {
-        name: "Rohan Patidar",
-        title: "LETS TALK ABOUT THIS NEW GENERATION",
-        description: "qxwd  qxwduq qw dx qwx dq",
-        paragraph: "THiS iS my FIRst pAraGRAPh",
-        image: "/images/bridge.jpg",
-      },
-    },
-    {
-      id: 2,
-      data: {
-        name: "Rohan Patidar",
-        title: "HEllo WoRLD",
-        description: "qxwd  qxwduq qw dx qwx werwrovvwdq",
-        paragraph:
-          "THiS iS my FIRst pAraGRAPh sdjfwefuwif ihdfw f wifwfwfjwfjwifwfnwcnfwewfbwcdui ufcewffwf cf wfw wf wuwhfefrewfww  hrfwfhwfhhfshfhfhhfgehg8  e8rgegyeryge gergyeg regerger g ege e ehgeh ehf fgh gfhhshvhfhf sdvsdherusdnvusfrvnsvnee e egeruevfve rgvnf",
-        image: "/images/bridge.jpg",
-      },
-    },
-    {
-      id: 3,
-      data: {
-        name: "Rohan Patidar",
-        title: "HEllo WoRLD",
-        description: "qxwd  qxwduq qw dx qwx dq djsqwd",
-        paragraph: "THiS iS my FIRst pAraGRAPh wfwfew",
-        image: "/images/bridge.jpg",
-      },
-    },
-    {
-      id: 4,
-      data: {
-        name: "Rohan Patidar",
-        title: "HEllo WoRLD",
-        description: "qxwd  qxwduq qw dx qwx dq dqcqd",
-        paragraph: "THiS iS my FIRst pAraGRAPh fjdnwfewfgr",
-        image: "/images/bridge.jpg",
-      },
-    },
-    {
-      id: 5,
-      data: {
-        name: "Rohan Patidar",
-        title: "HEllo WoRLD",
-        description: "qxwd  qxwduq qw dx qwx dqciqrryw90bfrw",
-        paragraph: "THiS iS my FIRst pAraGRAPh dsnisvir",
-        image: "/images/bridge.jpg",
-      },
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
   const topics = ["Art", "Book", "Fiction", "Gaming", "Comics", "Film"];
   const changeValue = (e) => {
     setValues({ ...value, [e.target.name]: e.target.value });
@@ -96,6 +44,43 @@ export default function Home() {
       url: "",
     });
   };
+  
+  const FetchData = () => {
+    axios
+      .get(`http://localhost:3000/api/bloglist/bloglist`)
+      .then((res) => {
+        //alert(JSON.stringify(res.data.data[1].blogsadd.blogName));
+
+        var img = "/images/bridge.jpg";
+        for(var i=0;i<=4;i++)
+        {
+          setPosts(posts => [
+            ...posts,
+           {
+            id:res.data.data[i]._id,
+             //id: res.data.data[i]._id,
+             data: {
+               name: res.data.data[i].blogsadd.blogWriter,
+               title: res.data.data[i].blogsadd.blogName,
+               description: res.data.data[i].blogsadd.blogDesc,
+               paragraph: res.data.data[i].blogsadd.blogDesc,
+               image: img, //change in later
+               dateBlog:res.data.data[i].blogsadd.blogDate,
+               timeBlog:res.data.data[i].blogsadd.blogTime,
+               publication:res.data.data[i].blogsadd.publication,
+             },
+           },
+         ])
+   
+        }
+
+      });
+  };
+ 
+  useEffect(() => {
+    FetchData();
+  }, []);
+
   return (
     <>
       <Navigation />
