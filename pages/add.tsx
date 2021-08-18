@@ -6,13 +6,13 @@ import { useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 type Inputs = {
   title: string;
-  tag: string;
+  desc: string;
   headerImage: string;
   paragraph: string;
+  tag: string;
 };
 
 const MyEditor = () => {
-
   const [loading, setLoading] = useState(false);
 
   const {
@@ -23,37 +23,35 @@ const MyEditor = () => {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    alert(data);
     setLoading(true);
-    axios 
-    .post(
-      `http://localhost:3000/api/bloglist/bloglist`,
-      {
-        blogName: "Pip",
-        blogDesc: "Pip",
+    axios
+      .post(`http://localhost:3000/api/bloglist/bloglist`, {
+        blogName: data.title,
+        blogDesc: data.desc,
         blogWriter: "Pip",
-        publication: "art",
-        blogDate: "12-02-2021",
-        blogTime: "10.00",
-        verificationStatus: "true"
-       }
-  );
+        publication: data.tag,
+        blogDate: new Date().toJSON().slice(0, 10),
+        blogTime: new Date().toLocaleTimeString(navigator.language, {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+        verificationStatus: "true",
+      })
+      .finally(() => router.push("/home"));
 
-  setLoading(false);
+    setLoading(false);
   };
 
-  if(loading)
-  {
-    return(<>
-    <CircularProgress
-            style={{ margin: "200px auto", color: "#9AC4F8" }}
-            size={70}
-          />
-    </>);
-
-  }
-  else
-  {
+  if (loading) {
+    return (
+      <>
+        <CircularProgress
+          style={{ margin: "200px auto", color: "#9AC4F8" }}
+          size={70}
+        />
+      </>
+    );
+  } else {
     return (
       <Container className="editor" fluid>
         <div className="go-back">
@@ -84,13 +82,13 @@ const MyEditor = () => {
               </Col>
               <Col sm={5}>
                 <Form.Control
-                  isInvalid={!!errors.tag}
-                  {...register("tag", { required: true })}
+                  isInvalid={!!errors.desc}
+                  {...register("desc", { required: true })}
                   className="mt-4"
-                  placeholder="Tag or Topic ex: art, philosophy"
+                  placeholder="Description"
                 />
                 <Form.Control.Feedback type="invalid">
-                  Tag is required.
+                  Description
                 </Form.Control.Feedback>
               </Col>
             </Row>
@@ -122,6 +120,23 @@ const MyEditor = () => {
                 </Form.Control.Feedback>
               </Col>
             </Row>
+            <Row className="mt-3">
+              <Col>
+                <Form.Label>Select Publication Type</Form.Label>
+                <Form.Control
+                  isInvalid={!!errors.tag}
+                  {...register("tag", { required: true })}
+                  placeholder="Select tag"
+                  as="select"
+                >
+                  <option value="art">Art</option>
+                  <option value="science">Science</option>
+                </Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  Tag is required.
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
             <Row className="mt-3 w-100">
               <Col className="submit-btn">
                 <Button type="submit">Submit for Review</Button>
@@ -135,7 +150,6 @@ const MyEditor = () => {
       </Container>
     );
   }
-
 };
 
 export default MyEditor;
