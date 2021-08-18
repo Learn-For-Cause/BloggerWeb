@@ -24,31 +24,20 @@ const MyEditor = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     setLoading(true);
-    console.log({
-      blogName: data.title,
-      blogDesc: data.desc,
-      blogWriter: "Pip",
-      publication: data.tag,
-      blogDate: new Date().toJSON().slice(0, 10),
-      blogTime: new Date().toLocaleTimeString(navigator.language, {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      verificationStatus: "true",
-    });
-
-    axios.post(`http://localhost:3000/api/bloglist/bloglist`, {
-      blogName: data.title,
-      blogDesc: data.desc,
-      blogWriter: "Pip",
-      publication: data.tag,
-      blogDate: new Date().toJSON().slice(0, 10),
-      blogTime: new Date().toLocaleTimeString(navigator.language, {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      verificationStatus: "true",
-    });
+    axios
+      .post(`http://localhost:3000/api/bloglist/bloglist`, {
+        blogName: data.title,
+        blogDesc: data.desc,
+        blogWriter: "Pip",
+        publication: data.tag,
+        blogDate: new Date().toJSON().slice(0, 10),
+        blogTime: new Date().toLocaleTimeString(navigator.language, {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+        verificationStatus: "true",
+      })
+      .finally(() => router.push("/home"));
 
     setLoading(false);
   };
