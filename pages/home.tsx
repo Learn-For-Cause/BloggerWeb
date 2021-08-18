@@ -44,39 +44,14 @@ export default function Home() {
       url: "",
     });
   };
-  
-  const FetchData = () => {
-    axios
-      .get(`http://localhost:3000/api/bloglist/bloglist`)
-      .then((res) => {
-        //alert(JSON.stringify(res.data.data[1].blogsadd.blogName));
 
-        var img = "/images/bridge.jpg";
-        for(var i=0;i<=4;i++)
-        {
-          setPosts(posts => [
-            ...posts,
-           {
-            id:res.data.data[i]._id,
-             //id: res.data.data[i]._id,
-             data: {
-               name: res.data.data[i].blogsadd.blogWriter,
-               title: res.data.data[i].blogsadd.blogName,
-               description: res.data.data[i].blogsadd.blogDesc,
-               paragraph: res.data.data[i].blogsadd.blogDesc,
-               image: img, //change in later
-               dateBlog:res.data.data[i].blogsadd.blogDate,
-               timeBlog:res.data.data[i].blogsadd.blogTime,
-               publication:res.data.data[i].blogsadd.publication,
-             },
-           },
-         ])
-   
-        }
-
-      });
+  const FetchData = async () => {
+    axios.get(`http://localhost:3000/api/bloglist/bloglist`).then((res) => {
+      console.log(res.data.data);
+      setPosts(res.data.data);
+    });
   };
- 
+
   useEffect(() => {
     FetchData();
   }, []);
@@ -87,8 +62,8 @@ export default function Home() {
       <div className={styles.publication_app}>
         <div className={styles.App_posts}>
           <Container>
-            {posts.map(({ id, data }) => (
-              <Blogs key={id} id={id} data={data} />
+            {posts.map((data: any, index: number) => (
+              <Blogs key={index} id={data._id} data={data.blogsadd} />
             ))}
           </Container>
         </div>
