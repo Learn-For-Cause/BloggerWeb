@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import LandingHeader from "../components/landing/LandingHeader";
 import LandingBody from "../components/landing/LandingBody";
 import LandingContactUs from "../components/landing/landingContactUs";
+import FAQ from "../components/landing/LandingFAQ";
 
 export const Index = () => {
   const router = useRouter();
@@ -22,6 +23,7 @@ export const Index = () => {
       <Head />
       <LandingHeader handleGetStarted={() => handleRedirect()} />
       <LandingBody />
+      <FAQ />
       <LandingContactUs />
     </>
   );

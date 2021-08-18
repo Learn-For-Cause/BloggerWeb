@@ -8,6 +8,7 @@ import Menu from "@material-ui/core/Menu";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Link from "next/link";
+import Add from "@material-ui/icons/Add";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,7 +38,7 @@ const Navigation = () => {
   };
 
   const handleMyAccountRedirect = () => router.push("/account");
-  const handleSettingsRedirect = () => router.push("/setting");
+  const handleMyBlogsRedirect = () => router.push("/setting");
 
   const handleLogout = () => {
     localStorage.clear();
@@ -50,11 +51,16 @@ const Navigation = () => {
     <>
       <div className="appbar">
         <div className="brand">
-          <img className="logo" src="/images/logo.svg" alt="" />
+          <img className="logo" src="/logo.svg" alt="" />
           <p className="title">Web Blogger</p>
         </div>
         <div className="search">
           <Form.Control className="my-form" placeholder="Search..." />
+          <a>
+            <Link href="/add">
+              <Add className="icon" />
+            </Link>
+          </a>
           <Avatar
             onClick={handleClick}
             className="avatar"
@@ -69,7 +75,7 @@ const Navigation = () => {
             onClose={handleClose}
           >
             <MenuItem onClick={handleMyAccountRedirect}>My Account</MenuItem>
-            <MenuItem onClick={handleSettingsRedirect}>Settings</MenuItem>
+            <MenuItem onClick={handleMyBlogsRedirect}>My Publishes</MenuItem>
             <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
         </div>
