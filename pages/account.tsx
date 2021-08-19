@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import Avatar from "@material-ui/core/Avatar";
+import { useSelector } from "react-redux";
+import { customSession,setUser,userMId} from "../redux/AuthSlice";
 
 const MyAccounts = () => {
+  const userId = useSelector(userMId);
   const [profileName, setprofileName] = useState("");
   const [profileEmail,setprofileEmail] = useState("");
   const [profileFollowing,setprofileFollowing] = useState("");
@@ -12,7 +15,8 @@ const MyAccounts = () => {
   const [profileAbout,setprofileAbout] = useState("");
   
   const FetchData = async () => {
-    axios.get(`http://localhost:3000/api/profile/611deb9767a86636d419a87e`).then((res) => {
+    // alert(userId);
+    axios.get(`http://localhost:3000/api/profile/${userId}`).then((res) => {
       //alert(JSON.stringify(res.data.data.profiledata.username));
       setprofileName(res.data.data.profiledata.username);
       setprofileEmail(res.data.data.profiledata.email);
