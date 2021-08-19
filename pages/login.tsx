@@ -65,7 +65,7 @@ const Login = () => {
             }
             ).finally(() => {
               //alert(res.data.response._id)
-              // alert(res.data.insertedId);
+              //alert(res.data.insertedId);
               dispatch(setUser(res.data.response._id))
               //localStorage.setItem("Auth", JSON.stringify(mySession));
               const mySession = {

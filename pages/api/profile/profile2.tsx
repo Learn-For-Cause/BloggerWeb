@@ -26,7 +26,7 @@ export default async(req: NextApiRequest, res: NextApiResponse)=>{
             try{
                 // res.send(req.body)
                 var profiledata = req.body;
-                profiledata = JSON.parse(profiledata)
+                //profiledata = JSON.parse(profiledata)
                 const addProfile = await db
                 .collection("profile")
                 .insertOne({profiledata})
