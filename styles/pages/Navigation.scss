@@ -9,10 +9,10 @@
   padding: 0.4rem 1rem;
   z-index: 77;
   height: 10vh;
-  @include flexBox(row, space-between, center);
+  @include flex(row, space-between, center);
   .brand {
     width: 30%;
-    @include flexBox(row, space-evenly, center);
+    @include flex(row, space-evenly, center);
     .logo {
       height: 4rem;
       width: 4rem;
@@ -29,7 +29,7 @@
   .search {
     width: 35%;
     height: 100%;
-    @include flexBox(row, space-evenly, center);
+    @include flex(row, space-evenly, center);
     .my-form {
       width: 65%;
       font-size: 1.6rem;
@@ -78,7 +78,7 @@
   // width < 600?
   .appbar {
     height: 20vh;
-    @include flexBox(column, space-evenly, center);
+    @include flex(column, space-evenly, center);
     .brand {
       width: 100%;
     }

@@ -8,7 +8,7 @@
   background: url("../../public/images/header.jpg");
   background-size: cover;
   background-position: top;
-  @include flexBox(column, space-evenly, center);
+  @include flex(column, space-evenly, center);
   height: 100vh;
   .upper {
     background-color: rgb(234, 237, 241);
@@ -17,7 +17,7 @@
     border-radius: 1.4rem;
     padding: 2rem;
     .avatar-col {
-      @include flexBox(column, center, center);
+      @include flex(column, center, center);
       .avatar {
         height: 10rem;
         width: 10rem;
@@ -28,7 +28,7 @@
       }
     }
     .details {
-      @include flexBox(column, space-evenly, center);
+      @include flex(column, space-evenly, center);
       & > h4 {
         font-size: 3.5rem;
       }

@@ -1,0 +1,36 @@
+@import "../constants/animations";
+@import "../constants/base";
+@import "../constants/mixins";
+@import "../constants/variables";
+@import "../constants/fonts";
+
+.posts {
+  background-color: white;
+  width: 56%;
+  border-radius: 0.7rem;
+  margin: 2rem 0;
+  padding: 2.1rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.16),
+    0 0.2rem 0.4rem rgba(0, 0, 0, 0.23);
+  &:hover {
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0 0.6rem 0.7rem rgba(0, 0, 0, 0.16),
+      0 0.6rem 0.7rem rgba(0, 0, 0, 0.23);
+  }
+  @include flex(row, space-between, center);
+  &__body {
+    width: 77%;
+    &__details {
+      @include flex(row, flex-start, center);
+      & > p {
+        margin-right: 1.4rem;
+      }
+    }
+  }
+  &__img {
+    height: 21rem;
+    width: 42rem;
+    background-position: center;
+    background-size: cover;
+  }
+}

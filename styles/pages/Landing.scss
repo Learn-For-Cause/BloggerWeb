@@ -8,7 +8,7 @@
 // Header
 //============================================
 .landing-header {
-  height: 95vh;
+  height: 100vh;
   background-image: linear-gradient(to right bottom, #0f044ccc, #548ba6cc),
     url("../../public/images/header.jpg");
   background-size: cover;
@@ -137,7 +137,7 @@
     }
     .icons-box {
       width: 100%;
-      @include flexBox(row, space-evenly, center);
+      @include flex(row, space-evenly, center);
       .icons {
         color: whitesmoke;
         height: 3.5rem;

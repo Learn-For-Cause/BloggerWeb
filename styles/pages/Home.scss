@@ -1,0 +1,38 @@
+@import "../constants/animations";
+@import "../constants/base";
+@import "../constants/mixins";
+@import "../constants/variables";
+@import "../constants/fonts";
+
+.home {
+  height: 90vh;
+  @include flex(row, space-between, center);
+  &__blogs {
+    @include flex(column, space-between, center);
+    background-color: aliceblue;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+  &__publications {
+    height: 100%;
+    width: 14%;
+    @include flex(column, center, center);
+    &__box {
+      height: 50%;
+      width: 98%;
+      background-color: white;
+      padding: 4rem;
+
+      &__title {
+        padding: 0.7rem;
+        width: fit-content;
+        height: fit-content;
+        background-color: gray;
+        color: white;
+        padding: 1.4rem;
+        border-radius: 3rem;
+      }
+    }
+  }
+}
