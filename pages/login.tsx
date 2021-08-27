@@ -35,7 +35,7 @@ const Login = () => {
           </Link>
         </div>
         <div className={classes.right}>
-          <h2>LOGIN</h2>
+          <h2>LOGIN</h2> 
           <TextField
             style={{ width: "100%" }}
             label="Email"

@@ -9,17 +9,9 @@ import { getAllPosts } from "../lib/api";
 import { PostType } from "../types/post";
 import { useSession } from "next-auth/client";
 import Login from "./login";
+import Landing from './landing';
 import Publications from "../components/Publications";
 import Header from "../components/Header";
-
-
-
-
-
-
-
-
-
 type IndexProps = {
   posts: PostType[];
 };
@@ -31,7 +23,7 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
     //after signup it will change
     return (
       <>
-        <Login />
+        <Landing />
       </>
     );
   } else {
@@ -47,14 +39,6 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
           <li className="mt-2">MDX</li>
           <li className="mt-2">Tailwind CSS</li>
         </ul>
-
-
-
-
-
-
-
-
         <a
           href="https://github.com/ChangoMan/nextjs-typescript-mdx-blog"
           className="inline-block px-7 py-3 rounded-md text-white dark:text-white bg-blue-600 hover:bg-blue-700 hover:text-white dark:hover:text-white"
