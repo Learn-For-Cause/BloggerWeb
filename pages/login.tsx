@@ -21,15 +21,8 @@ const Login = () => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     console.log(formData);
-    axios.post('http://localhost:7070/authUser', formData).then((res) => {
+    axios.post(`${process.env.API_URL}/authUser`, formData).then((res) => {
       console.log(res);
-      if(res.data === "Succesfully loged In")
-      {
-        router.push('/')
-      }
-      else{
-
-      }
     });
   };
   return (
@@ -42,7 +35,7 @@ const Login = () => {
           </Link>
         </div>
         <div className={classes.right}>
-          <h2>LOGIN</h2>
+          <h2>LOGIN</h2> 
           <TextField
             style={{ width: "100%" }}
             label="Email"
