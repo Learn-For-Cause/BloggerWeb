@@ -1,4 +1,8 @@
-👀 [View the Live Demo](http://blogger-web.vercel.app/)
+![Screenshot (421)](https://user-images.githubusercontent.com/64493268/131857592-94f234dc-49c5-4fa6-b354-6e4b62b53d1c.png)
+
+![Screenshot (422)](https://user-images.githubusercontent.com/64493268/131857579-d5defaba-251b-4b58-8817-46047b461689.png)
+
+## 👀 [View the Live Demo](http://blogger-web.vercel.app/)
 
 ## Getting Started
 
