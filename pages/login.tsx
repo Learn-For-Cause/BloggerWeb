@@ -1,13 +1,12 @@
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { signIn } from "next-auth/client";
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import MyToast from "../components/Toast";
 import { useAppDispatch } from "../redux/hooks";
-import { customSession,setUser,userMId} from "../redux/AuthSlice";
+import { customSession, setUser, userMId } from "../redux/AuthSlice";
 import { GoogleLogin } from "react-google-login";
 import { useRouter } from "next/router";
 import Home from "./home";
@@ -39,8 +38,8 @@ const Login = () => {
     axios
       .post(
         isLogin
-          ?( `http://localhost:5000/login`)
-          : (`http://localhost:5000/register`),
+          ? `http://localhost:5000/login`
+          : `http://localhost:5000/register`,
         data
       )
       .then((res) => {
@@ -51,42 +50,39 @@ const Login = () => {
             break;
           }
           case "Proceed":
-            if(!isLogin)
-            {
-              axios.post(`http://localhost:3000/api/profile/profile2`,
-              {
-                username: res.data.response.userName,
-                password: res.data.response._id,  //it is _id for now
-                email: res.data.response.userEmail,
-                tagline: "Default",
-                about: "Default",
-                intrests: "Default",
-                following: "0"
-            }
-            ).finally(() => {
-              //alert(res.data.response._id)
-              //alert(res.data.insertedId);
-              dispatch(setUser(res.data.response._id))
-              //localStorage.setItem("Auth", JSON.stringify(mySession));
-              const mySession = {
-                user: {
-                  name: res.data.response.userName,
+            if (!isLogin) {
+              axios
+                .post(`http://localhost:3000/api/profile/profile2`, {
+                  username: res.data.response.userName,
+                  password: res.data.response._id, //it is _id for now
                   email: res.data.response.userEmail,
-                },
-                accessToken: res.data.signedToken,
-                expires: res.data.expiresIn,
-              };
-              dispatch(customSession(mySession));
-              localStorage.setItem("Auth", JSON.stringify(mySession));
-              router.push("/home");
-              //alert(userId)
-            }
-            );
-
-            }else{
+                  tagline: "Default",
+                  about: "Default",
+                  intrests: "Default",
+                  following: "0",
+                })
+                .finally(() => {
+                  //alert(res.data.response._id)
+                  //alert(res.data.insertedId);
+                  dispatch(setUser(res.data.response._id));
+                  //localStorage.setItem("Auth", JSON.stringify(mySession));
+                  const mySession = {
+                    user: {
+                      name: res.data.response.userName,
+                      email: res.data.response.userEmail,
+                    },
+                    accessToken: res.data.signedToken,
+                    expires: res.data.expiresIn,
+                  };
+                  dispatch(customSession(mySession));
+                  localStorage.setItem("Auth", JSON.stringify(mySession));
+                  router.push("/home");
+                  //alert(userId)
+                });
+            } else {
               //alert('login')
 
-              dispatch(setUser(res.data.response._id))
+              dispatch(setUser(res.data.response._id));
               //localStorage.setItem("Auth", JSON.stringify(mySession));
               const mySession = {
                 user: {
@@ -101,7 +97,7 @@ const Login = () => {
               router.push("/home");
               //alert(userId)
             }
-            
+
             break;
           case "Server Error": {
             setData(res.data.userResponse);
@@ -203,14 +199,6 @@ const Login = () => {
                       >
                         {isLogin ? "Login" : "Sign Up"}
                       </Button>
-                      {/* <Button
-                          variant="contained"
-                          color="primary"
-                          className="google mt-3 w-75"
-                          onClick={() => signIn()}
-                        >
-                          <img src="./google.png" alt="" />
-                        </Button> */}
                       <GoogleLogin
                         clientId={id}
                         render={(renderProps) => (
@@ -220,7 +208,7 @@ const Login = () => {
                             className="google mt-3 w-75"
                             onClick={renderProps.onClick}
                           >
-                            <img src="./google.png" alt="" />
+                            <img src="/google.png" alt="" />
                           </Button>
                         )}
                         onSuccess={googleSuccess}
