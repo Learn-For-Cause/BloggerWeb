@@ -15,15 +15,19 @@ export default async(req: NextApiRequest, res: NextApiResponse)=>{
     switch(method){
         case 'GET':{
             try{
-                const profileData = await  db
+                const profileData1 = await  db
                 .collection("profile")
-                .findOne({_id:iiid})
+                // .findOne({_id:iiid})
+                .findOne({
+                    "profiledata.password": String(iiid),
+                   }
+                )
                 // .findById(id)
 
-                if(!profileData){
+                if(!profileData1){
                     return res.status(400).json({success:"not found"})
                 }
-                res.status(200).json({success:true,data:profileData})
+                res.status(200).json({success:true,data:profileData1})
 
             }catch(err){
                 return res.status(400).json({success:false})

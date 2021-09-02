@@ -8,7 +8,7 @@
   height: 100vh;
   width: 100vw;
   padding: 7rem;
-  @include flexBox(column, center, center);
+  @include flex(column, center, center);
   .go-back {
     width: 100%;
 
@@ -25,10 +25,10 @@
       }
     }
 
-    @include flexBox(row, flex-end, center);
+    @include flex(row, flex-end, center);
   }
   .header {
-    @include flexBox(column, center, center);
+    @include flex(column, center, center);
     p {
       font-size: 2rem;
       font-weight: bold;
@@ -42,7 +42,7 @@
     border-radius: 1rem;
     box-shadow: 0.5rem 0.5rem 0 #e5e5e5;
     .submit-btn {
-      @include flexBox(column, center, center);
+      @include flex(column, center, center);
       & > * {
         font-size: 1.2rem;
       }

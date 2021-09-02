@@ -5,15 +5,29 @@ import Blogs from "../components/Blogs";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const useStyles = makeStyles({
+  root: {
+    width: "100%",
+  },
+});
+
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const topics = ["Art", "Book", "Fiction", "Gaming", "Comics", "Film"];
-
+  const classes = useStyles();
   const FetchData = async () => {
-    axios.get(`http://localhost:3000/api/bloglist/bloglist`).then((res) => {
-      console.log(res.data.data);
-      setPosts(res.data.data);
-    });
+    setLoading(true);
+    axios
+      .get(`http://localhost:3000/api/bloglist/bloglist`)
+      .then((res) => {
+        console.log(res.data.data);
+        setPosts(res.data.data);
+      })
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -23,28 +37,24 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <div className={styles.publication_app}>
-        <div className={styles.App_posts}>
-          <Container>
-            {posts.map((data: any, index: number) => (
-              <Blogs key={index} id={data._id} data={data.blogsadd} />
-            ))}
-          </Container>
+      <div className="home">
+        <div className="home__blogs">
+          {posts.map((data: any, index: number) => (
+            <Blogs key={index} id={data._id} data={data.blogsadd} />
+          ))}
         </div>
-        <div className={styles.topics_container}>
-          <h3>SELECT TOPIC OF YOUR INTEREST</h3>
-          <div className={styles.topics_list}>
+        {/* <div className="home__publications">
+          <h5>Recommended Topics</h5>
+          <div className="home__publications__box">
             {topics.map((name, i) => (
               <Link key={i} href="#">
-                <a style={{ textDecoration: "none", color: "grey" }}>
-                  <div className={styles.topic_name}>
-                    <span>{name}</span>
-                  </div>
+                <a style={{ textDecoration: "none" }}>
+                  <div className="home__publications__box__title">{name}</div>
                 </a>
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

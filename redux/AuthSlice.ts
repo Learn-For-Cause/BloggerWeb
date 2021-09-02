@@ -2,17 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./Store";
 
 interface Data {
-  value: any
+  value: any,
+  userOid:any
 }
 
 const initialState: Data = {
   value: {},
+  userOid: "",
 }
 
 export const AuthSlice = createSlice({
   name: "sessionState",
   initialState,
   reducers: {
+    setUser: (state, action) => {
+      state.userOid = action.payload;
+    },
     customSession: (state,action) => {
       state.value = action.payload;
     },
@@ -22,6 +27,6 @@ export const AuthSlice = createSlice({
   },
 });
 
-export const { customSession,logout } = AuthSlice.actions
-
+export const { setUser,customSession,logout } = AuthSlice.actions
+export const userMId = (state) => state.sessionState.userOid;
 export default AuthSlice.reducer
